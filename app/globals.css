@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #000000;
+  --sage: #7BC49A;
+  --lavender: #B088CC;
+  --copper: #D4925A;
+  --white: #FFFFFF;
+  --gray-dim: #1a1a1a;
+  --gray-border: #2a2a2a;
+  --gray-muted: #888888;
+}
+
+@theme inline {
+  --color-sage: var(--sage);
+  --color-lavender: var(--lavender);
+  --color-copper: var(--copper);
+  --color-bg: var(--bg);
+  --color-gray-dim: var(--gray-dim);
+  --color-gray-border: var(--gray-border);
+  --color-gray-muted: var(--gray-muted);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #7BC49A33;
+  color: #7BC49A;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7BC49A44;
+}
