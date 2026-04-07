@@ -57,3 +57,33 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #7BC49A44;
 }
+
+/* ── Button hover utilities ────────────────────────── */
+
+/* Green filled button — darken on hover */
+.btn-sage {
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+.btn-sage:hover:not(:disabled) {
+  filter: brightness(0.88);
+}
+.btn-sage:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Outline / secondary button on light bg — subtle darken */
+.btn-outline {
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn-outline:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+/* Navbar Contact button — fills sage on hover when not active */
+.contact-nav-btn {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.contact-nav-btn:hover {
+  background-color: #7BC49A !important;
+  color: #000 !important;
+}

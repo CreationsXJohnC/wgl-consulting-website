@@ -28,7 +28,8 @@ export default function Home() {
   return (
     <div style={{ background: "#ffffff" }}>
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16 overflow-hidden">
+      {/* pt-28 ensures logo clears the fixed 64px navbar with room to breathe */}
+      <section className="relative min-h-screen flex flex-col items-center text-center px-6 pt-28 pb-16 overflow-hidden">
         {/* Subtle radial glow */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -66,21 +67,21 @@ export default function Home() {
           consulting firm specializing in cultivation, compliance, and community
           development through education.
         </p>
-        <p className="text-sm font-semibold tracking-widest mb-10" style={{ color: "#7BC49A" }}>
+        <p className="text-sm font-semibold tracking-widest mb-8" style={{ color: "#7BC49A" }}>
           WASHINGTON, D.C. &nbsp;·&nbsp; FULL SERVICE CONSULTING
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <Link
             href="/services"
-            className="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-200"
+            className="btn-sage px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide"
             style={{ background: "#7BC49A", color: "#000" }}
           >
             Explore Services
           </Link>
           <Link
             href="/contact"
-            className="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide border transition-all duration-200"
+            className="btn-outline px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide border"
             style={{ borderColor: "#ccc", color: "#333" }}
           >
             Get in Touch
@@ -164,14 +165,14 @@ export default function Home() {
       </section>
 
       {/* ── DR. PESOS FEATURED ───────────────────────────────────── */}
-      {/* This section keeps a dark background — character art has black bg */}
-      <section className="py-24 px-6" style={{ background: "#0d0d0d", borderTop: "1px solid #e5e5e5" }}>
+      {/* White background per Revision 02 */}
+      <section className="py-24 px-6" style={{ background: "#ffffff", borderTop: "1px solid #e5e5e5" }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-xs font-semibold tracking-widest mb-6" style={{ color: "#D4925A" }}>
               PRODUCT LINE
             </p>
-            {/* Dr. Pesos text logo */}
+            {/* No invert filter — page is now white, image renders correctly */}
             <div className="flex justify-center mb-4">
               <Image
                 src="/logos/Dr. Pesos Text.png"
@@ -179,10 +180,9 @@ export default function Home() {
                 width={320}
                 height={90}
                 className="object-contain"
-                style={{ filter: "invert(1)" }}
               />
             </div>
-            <p className="text-base max-w-xl mx-auto" style={{ color: "#999" }}>
+            <p className="text-base max-w-xl mx-auto" style={{ color: "#666" }}>
               Tools, guides, and AI-powered resources for cannabis cultivators and operators.
             </p>
           </div>
@@ -191,7 +191,7 @@ export default function Home() {
             {/* Grow Coach AI */}
             <div
               className="relative flex flex-col p-8 rounded-2xl overflow-hidden"
-              style={{ background: "#111", border: "1px solid #1f1f1f" }}
+              style={{ background: "#f7f7f7", border: "1px solid #e5e5e5" }}
             >
               <span
                 className="self-start px-3 py-1 rounded-full text-xs font-semibold tracking-wide mb-5"
@@ -206,8 +206,8 @@ export default function Home() {
 
               <div className="flex gap-6 items-start">
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-3">Dr. Pesos Grow Coach AI</h3>
-                  <p className="text-sm leading-relaxed mb-6" style={{ color: "#888" }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: "#111" }}>Dr. Pesos Grow Coach AI</h3>
+                  <p className="text-sm leading-relaxed mb-6" style={{ color: "#777" }}>
                     An intelligent AI-powered cultivation assistant. Get real-time grow advice, diagnose plant issues, and optimize your yields — built for cannabis cultivators.
                   </p>
                   <div className="flex flex-col gap-3">
@@ -215,7 +215,7 @@ export default function Home() {
                       href="https://drpesos-growcoach-ai.vercel.app"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="self-start px-6 py-2.5 rounded-full text-sm font-semibold"
+                      className="btn-sage self-start px-6 py-2.5 rounded-full text-sm font-semibold"
                       style={{ background: "#7BC49A", color: "#000" }}
                     >
                       Launch Grow Coach ↗
@@ -247,7 +247,7 @@ export default function Home() {
             {/* Cultivation Guidebook */}
             <div
               className="relative flex flex-col p-8 rounded-2xl overflow-hidden"
-              style={{ background: "#111", border: "1px solid #1f1f1f" }}
+              style={{ background: "#f7f7f7", border: "1px solid #e5e5e5" }}
             >
               <span
                 className="self-start px-3 py-1 rounded-full text-xs font-semibold tracking-wide mb-5"
@@ -262,17 +262,17 @@ export default function Home() {
 
               <div className="flex gap-6 items-start">
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-3">Indoor Cultivation Guidebook</h3>
-                  <p className="text-sm leading-relaxed mb-6" style={{ color: "#888" }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: "#111" }}>Indoor Cultivation Guidebook</h3>
+                  <p className="text-sm leading-relaxed mb-6" style={{ color: "#777" }}>
                     A comprehensive reference guide covering every stage of the indoor cannabis grow cycle. Written by practitioners, designed for cultivators at every level.
                   </p>
                   <div className="flex flex-col gap-3">
                     <span
                       className="self-start px-6 py-2.5 rounded-full text-sm font-semibold"
                       style={{
-                        background: "#1a1a1a",
-                        color: "#555",
-                        border: "1px solid #2a2a2a",
+                        background: "#eee",
+                        color: "#999",
+                        border: "1px solid #ddd",
                       }}
                     >
                       Coming Soon
@@ -352,7 +352,7 @@ export default function Home() {
               </span>
             </a>
 
-            {/* Ori Corp — updated to ORI Logo-08 */}
+            {/* Ori Corp */}
             <div
               className="flex flex-col p-8 rounded-2xl"
               style={{ background: "#f7f7f7", border: "1px solid #e5e5e5" }}
@@ -376,9 +376,16 @@ export default function Home() {
               <p className="text-sm mb-4" style={{ color: "#888" }}>
                 The corporate arm of the Ori Company ecosystem — enterprise partnerships, investment, and development.
               </p>
-              <span className="text-sm font-medium mt-auto" style={{ color: "#bbb" }}>
-                oricorpdc.com — Launching soon
-              </span>
+              {/* Live link per Revision 02 item 5 */}
+              <a
+                href="https://oricompanydc.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium mt-auto"
+                style={{ color: "#B088CC" }}
+              >
+                Ori Project Website ↗
+              </a>
             </div>
 
             {/* WGL Consulting */}
@@ -436,7 +443,7 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 rounded-full font-semibold text-base"
+            className="btn-sage inline-block px-10 py-4 rounded-full font-semibold text-base"
             style={{ background: "#7BC49A", color: "#000" }}
           >
             Start a Conversation

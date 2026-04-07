@@ -1,11 +1,22 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
+  // Track field values to conditionally enable hover effect
+  const [fields, setFields] = useState({ name: "", email: "", subject: "", message: "" });
+
+  const allFilled = fields.name.trim() !== "" &&
+    fields.email.trim() !== "" &&
+    fields.subject.trim() !== "" &&
+    fields.message.trim() !== "";
+
+  function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -24,34 +35,13 @@ export default function ContactForm() {
       if (res.ok) {
         setState("success");
         form.reset();
+        setFields({ name: "", email: "", subject: "", message: "" });
       } else {
         setState("error");
       }
     } catch {
       setState("error");
     }
-  }
-
-  if (state === "success") {
-    return (
-      <div
-        className="flex flex-col items-center justify-center text-center p-12 rounded-2xl"
-        style={{ background: "#0d0d0d", border: "1px solid #1f3025" }}
-      >
-        <div
-          className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-          style={{ background: "#7BC49A18" }}
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7BC49A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-2">Message sent.</h3>
-        <p className="text-sm" style={{ color: "#888" }}>
-          We&apos;ll be in touch within 1–2 business days.
-        </p>
-      </div>
-    );
   }
 
   const inputStyle = {
@@ -77,10 +67,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-5"
-    >
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="name" style={labelStyle}>Name</label>
@@ -90,6 +77,8 @@ export default function ContactForm() {
             type="text"
             required
             placeholder="Your name"
+            value={fields.name}
+            onChange={handleChange}
             style={inputStyle}
             onFocus={(e) => (e.target.style.borderColor = "#7BC49A")}
             onBlur={(e) => (e.target.style.borderColor = "#2a2a2a")}
@@ -103,6 +92,8 @@ export default function ContactForm() {
             type="email"
             required
             placeholder="you@example.com"
+            value={fields.email}
+            onChange={handleChange}
             style={inputStyle}
             onFocus={(e) => (e.target.style.borderColor = "#7BC49A")}
             onBlur={(e) => (e.target.style.borderColor = "#2a2a2a")}
@@ -118,6 +109,8 @@ export default function ContactForm() {
           type="text"
           required
           placeholder="What can we help with?"
+          value={fields.subject}
+          onChange={handleChange}
           style={inputStyle}
           onFocus={(e) => (e.target.style.borderColor = "#7BC49A")}
           onBlur={(e) => (e.target.style.borderColor = "#2a2a2a")}
@@ -132,6 +125,8 @@ export default function ContactForm() {
           required
           rows={6}
           placeholder="Tell us about your project, operation, or question..."
+          value={fields.message}
+          onChange={handleChange}
           style={{ ...inputStyle, resize: "vertical", minHeight: "140px" }}
           onFocus={(e) => (e.target.style.borderColor = "#7BC49A")}
           onBlur={(e) => (e.target.style.borderColor = "#2a2a2a")}
@@ -149,11 +144,20 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={state === "submitting"}
-        className="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-200 disabled:opacity-60"
-        style={{ background: "#7BC49A", color: "#000" }}
+        disabled={state === "submitting" || state === "success"}
+        className={`px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-200 disabled:opacity-60 ${allFilled && state !== "success" ? "btn-sage" : ""}`}
+        style={{
+          background: state === "success" ? "#7BC49A" : "#7BC49A",
+          color: "#000",
+          // Disable pointer events on hover when form incomplete or already submitted
+          cursor: allFilled && state === "idle" ? "pointer" : state === "submitting" ? "wait" : state === "success" ? "default" : "not-allowed",
+        }}
       >
-        {state === "submitting" ? "Sending..." : "Send Message"}
+        {state === "success"
+          ? "Message Sent ✓"
+          : state === "submitting"
+          ? "Sending..."
+          : "Send Message"}
       </button>
 
       <p className="text-xs" style={{ color: "#444" }}>

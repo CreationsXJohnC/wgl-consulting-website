@@ -91,64 +91,45 @@ const drPesosProducts = [
   },
 ];
 
-const externalLinks = [
-  {
-    name: "Ori App (Beta)",
-    desc: "The Ori Company platform — connecting cultivators, operators, and the cannabis community.",
-    href: "https://ori-company-app.vercel.app/",
-    badge: "Beta",
-    badgeColor: "#7BC49A",
-    icon: "/icons/ORI Icon14.png",
-  },
-  {
-    name: "Ori Corp",
-    desc: "Enterprise arm of the Ori ecosystem. Corporate partnerships, development, and investment.",
-    href: null,
-    badge: "Coming Soon",
-    badgeColor: "#B088CC",
-    icon: "/logos/ORI Logo-08.png",
-  },
-];
-
 export default function ServicesPage() {
   return (
-    <div style={{ background: "#000" }}>
+    <div style={{ background: "#fff" }}>
       {/* Page Header */}
       <section
         className="pt-32 pb-20 px-6 text-center"
         style={{
-          background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(123,196,154,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(123,196,154,0.08) 0%, transparent 70%)",
         }}
       >
         <p className="text-xs font-semibold tracking-widest mb-4" style={{ color: "#7BC49A" }}>
           WHAT WE OFFER
         </p>
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Services</h1>
-        <p className="text-lg max-w-2xl mx-auto" style={{ color: "#888" }}>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: "#111" }}>Services</h1>
+        <p className="text-lg max-w-2xl mx-auto" style={{ color: "#666" }}>
           WGL Consulting delivers full spectrum consulting for cannabis operators, cultivators, and entrepreneurs — from compliance and cultivation to digital tools.
         </p>
       </section>
 
       {/* Consulting Services */}
-      <section className="py-16 px-6" style={{ borderTop: "1px solid #1a1a1a" }}>
+      <section className="py-16 px-6" style={{ borderTop: "1px solid #e5e5e5" }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-12 text-center">Consulting Services</h2>
+          <h2 className="text-2xl font-bold mb-12 text-center" style={{ color: "#111" }}>Consulting Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {consultingServices.map((s) => (
               <div
                 key={s.title}
                 className="p-8 rounded-2xl"
-                style={{ background: "#0d0d0d", border: "1px solid #1a1a1a" }}
+                style={{ background: "#f7f7f7", border: "1px solid #e5e5e5" }}
               >
                 <div className="flex items-start gap-5 mb-5">
                   <div
                     className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center"
-                    style={{ background: "#0f1f15" }}
+                    style={{ background: "#eaf5ef" }}
                   >
                     <Image src={s.icon} alt={s.title} width={32} height={32} className="object-contain" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white mb-1">{s.title}</h3>
+                    <h3 className="text-lg font-bold mb-1" style={{ color: "#111" }}>{s.title}</h3>
                     <p className="text-sm leading-relaxed" style={{ color: "#777" }}>{s.desc}</p>
                   </div>
                 </div>
@@ -167,12 +148,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Dr. Pesos Products */}
-      <section className="py-16 px-6" style={{ borderTop: "1px solid #1a1a1a" }}>
+      <section className="py-16 px-6" style={{ borderTop: "1px solid #e5e5e5" }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-widest mb-6" style={{ color: "#D4925A" }}>
               PRODUCT LINE
             </p>
+            {/* Page is white — no invert filter needed */}
             <div className="flex justify-center mb-4">
               <Image
                 src="/logos/Dr. Pesos Text.png"
@@ -180,10 +162,9 @@ export default function ServicesPage() {
                 width={280}
                 height={80}
                 className="object-contain"
-                style={{ filter: "invert(1)" }}
               />
             </div>
-            <p className="text-base max-w-xl mx-auto" style={{ color: "#888" }}>
+            <p className="text-base max-w-xl mx-auto" style={{ color: "#666" }}>
               Tools and resources built by cultivators, for cultivators.
             </p>
           </div>
@@ -193,7 +174,7 @@ export default function ServicesPage() {
               <div
                 key={p.title}
                 className="flex flex-col p-8 rounded-2xl"
-                style={{ background: "#0d0d0d", border: "1px solid #1a1a1a" }}
+                style={{ background: "#f7f7f7", border: "1px solid #e5e5e5" }}
               >
                 <span
                   className="self-start px-3 py-1 rounded-full text-xs font-semibold tracking-wide mb-5"
@@ -206,7 +187,7 @@ export default function ServicesPage() {
                   {p.status}
                 </span>
 
-                <h3 className="text-xl font-bold text-white mb-3">{p.title}</h3>
+                <h3 className="text-xl font-bold mb-3" style={{ color: "#111" }}>{p.title}</h3>
                 <p className="text-sm leading-relaxed mb-6" style={{ color: "#777" }}>{p.desc}</p>
 
                 <ul className="space-y-2 mb-8">
@@ -224,7 +205,7 @@ export default function ServicesPage() {
                       href={p.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="self-start px-6 py-2.5 rounded-full text-sm font-semibold"
+                      className="btn-sage self-start px-6 py-2.5 rounded-full text-sm font-semibold"
                       style={{ background: p.accent, color: "#000" }}
                     >
                       {p.cta} ↗
@@ -233,9 +214,9 @@ export default function ServicesPage() {
                     <span
                       className="self-start px-6 py-2.5 rounded-full text-sm font-semibold"
                       style={{
-                        background: "#1a1a1a",
-                        color: "#555",
-                        border: `1px solid #2a2a2a`,
+                        background: "#eee",
+                        color: "#999",
+                        border: "1px solid #ddd",
                       }}
                     >
                       {p.cta}
@@ -257,73 +238,87 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* External Links */}
-      <section className="py-16 px-6" style={{ borderTop: "1px solid #1a1a1a" }}>
+      {/* Connected Platforms */}
+      <section className="py-16 px-6" style={{ borderTop: "1px solid #e5e5e5" }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-widest mb-3" style={{ color: "#B088CC" }}>
               ECOSYSTEM
             </p>
-            <h2 className="text-2xl font-bold text-white mb-3">Connected Platforms</h2>
+            <h2 className="text-2xl font-bold mb-3" style={{ color: "#111" }}>Connected Platforms</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {externalLinks.map((link) => (
-              <div
-                key={link.name}
-                className="flex flex-col p-7 rounded-2xl"
-                style={{ background: "#0d0d0d", border: "1px solid #1a1a1a" }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div
-                    className="flex items-center justify-center rounded-lg overflow-hidden"
-                    style={{
-                      background: link.icon.includes("ORI Logo-08") ? "#fff" : "transparent",
-                      padding: link.icon.includes("ORI Logo-08") ? "3px 7px" : "0",
-                    }}
-                  >
-                    <Image src={link.icon} alt={link.name} width={link.icon.includes("ORI Logo-08") ? 48 : 28} height={28} className="object-contain" />
-                  </div>
-                  <span
-                    className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded"
-                    style={{ background: `${link.badgeColor}18`, color: link.badgeColor }}
-                  >
-                    {link.badge}
-                  </span>
-                </div>
-                <h3 className="text-base font-bold text-white mb-2">{link.name}</h3>
-                <p className="text-sm mb-4" style={{ color: "#666" }}>{link.desc}</p>
-                {link.href ? (
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium mt-auto"
-                    style={{ color: link.badgeColor }}
-                  >
-                    Visit ↗
-                  </a>
-                ) : (
-                  <span className="text-sm mt-auto" style={{ color: "#444" }}>oricorpdc.com — Coming soon</span>
-                )}
+            {/* Ori App */}
+            <div
+              className="flex flex-col p-7 rounded-2xl"
+              style={{ background: "#f7f7f7", border: "1px solid #e5e5e5" }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Image src="/icons/ORI Icon14.png" alt="Ori App" width={28} height={28} className="object-contain" />
+                <span
+                  className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded"
+                  style={{ background: "#7BC49A18", color: "#7BC49A" }}
+                >
+                  Beta
+                </span>
               </div>
-            ))}
+              <h3 className="text-base font-bold mb-2" style={{ color: "#111" }}>Ori App (Beta)</h3>
+              <p className="text-sm mb-4" style={{ color: "#666" }}>The Ori Company platform — connecting cultivators, operators, and the cannabis community.</p>
+              <a
+                href="https://ori-company-app.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium mt-auto"
+                style={{ color: "#7BC49A" }}
+              >
+                Visit ↗
+              </a>
+            </div>
+
+            {/* Ori Corp */}
+            <div
+              className="flex flex-col p-7 rounded-2xl"
+              style={{ background: "#f7f7f7", border: "1px solid #e5e5e5" }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Image src="/logos/ORI Logo-08.png" alt="Ori Corp" width={48} height={28} className="object-contain" />
+                <span
+                  className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded"
+                  style={{ background: "#B088CC18", color: "#B088CC" }}
+                >
+                  Coming Soon
+                </span>
+              </div>
+              <h3 className="text-base font-bold mb-2" style={{ color: "#111" }}>Ori Corp</h3>
+              <p className="text-sm mb-4" style={{ color: "#666" }}>Enterprise arm of the Ori ecosystem. Corporate partnerships, development, and investment.</p>
+              {/* Live link per Revision 02 item 8 */}
+              <a
+                href="https://oricompanydc.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium mt-auto"
+                style={{ color: "#B088CC" }}
+              >
+                Ori Project Website ↗
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 text-center" style={{ borderTop: "1px solid #1a1a1a" }}>
+      <section className="py-24 px-6 text-center" style={{ borderTop: "1px solid #e5e5e5" }}>
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-3xl font-bold mb-4" style={{ color: "#111" }}>
             Let&apos;s Talk About Your <span style={{ color: "#7BC49A" }}>Operation</span>
           </h2>
-          <p className="text-base mb-8" style={{ color: "#888" }}>
+          <p className="text-base mb-8" style={{ color: "#666" }}>
             Every grow, every compliance challenge, every business model is unique. Reach out and let&apos;s find the right consulting approach for your needs.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 rounded-full font-semibold text-base"
+            className="btn-sage inline-block px-10 py-4 rounded-full font-semibold text-base"
             style={{ background: "#7BC49A", color: "#000" }}
           >
             Contact Us

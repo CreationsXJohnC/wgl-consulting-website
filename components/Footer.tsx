@@ -70,9 +70,16 @@ export default function Footer() {
             >
               Dr. Pesos Grow Coach AI ↗
             </a>
-            <span className="text-sm" style={{ color: "#444" }}>
-              Ori Corp — Coming Soon
-            </span>
+            {/* Live link per Revision 02 item 6 */}
+            <a
+              href="https://oricompanydc.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm transition-colors duration-200"
+              style={{ color: "#888" }}
+            >
+              Ori Project Website ↗
+            </a>
             <div className="mt-4">
               <a
                 href="mailto:wglconsultingdc@gmail.com"

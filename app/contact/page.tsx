@@ -103,7 +103,6 @@ export default function ContactPage() {
                   "Compliance Consultation",
                   "Cultivation Consulting",
                   "Licensing Support",
-                  "Dr. Pesos Products",
                   "Operations Review",
                   "General Inquiry",
                 ].map((tag) => (
