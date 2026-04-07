@@ -53,7 +53,7 @@ export default function Footer() {
           <div className="flex flex-col gap-3">
             <h4 className="text-sm font-semibold tracking-widest text-white uppercase mb-1">Ecosystem</h4>
             <a
-              href="https://ori-company-app.vercel.app"
+              href="https://ori-company-app.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm transition-colors duration-200"

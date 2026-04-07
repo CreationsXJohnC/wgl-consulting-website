@@ -244,7 +244,7 @@ export default function AboutPage() {
                 status: "Beta",
               },
               {
-                logo: "/logos/Ori-Badge02.png",
+                logo: "/logos/ORI Logo-08.png",
                 name: "Ori Corp",
                 desc: "The corporate entity. Enterprise partnerships, investment, and development.",
                 color: "#B088CC",
@@ -257,7 +257,15 @@ export default function AboutPage() {
                 style={{ background: "#0d0d0d", border: "1px solid #1a1a1a" }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <Image src={node.logo} alt={node.name} width={32} height={32} className="object-contain" />
+                  <div
+                    className="flex items-center justify-center rounded-lg overflow-hidden"
+                    style={{
+                      background: node.logo.includes("ORI Logo-08") ? "#fff" : "transparent",
+                      padding: node.logo.includes("ORI Logo-08") ? "4px 8px" : "0",
+                    }}
+                  >
+                    <Image src={node.logo} alt={node.name} width={node.logo.includes("ORI Logo-08") ? 52 : 32} height={32} className="object-contain" />
+                  </div>
                   <span
                     className="text-xs font-semibold tracking-wide px-2 py-0.5 rounded"
                     style={{ background: `${node.color}18`, color: node.color }}

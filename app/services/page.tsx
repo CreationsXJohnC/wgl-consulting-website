@@ -95,7 +95,7 @@ const externalLinks = [
   {
     name: "Ori App (Beta)",
     desc: "The Ori Company platform — connecting cultivators, operators, and the cannabis community.",
-    href: "https://ori-company-app.vercel.app",
+    href: "https://ori-company-app.vercel.app/",
     badge: "Beta",
     badgeColor: "#7BC49A",
     icon: "/icons/ORI Icon14.png",
@@ -106,7 +106,7 @@ const externalLinks = [
     href: null,
     badge: "Coming Soon",
     badgeColor: "#B088CC",
-    icon: "/logos/Ori-Badge02.png",
+    icon: "/logos/ORI Logo-08.png",
   },
 ];
 
@@ -170,10 +170,19 @@ export default function ServicesPage() {
       <section className="py-16 px-6" style={{ borderTop: "1px solid #1a1a1a" }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest mb-3" style={{ color: "#D4925A" }}>
+            <p className="text-xs font-semibold tracking-widest mb-6" style={{ color: "#D4925A" }}>
               PRODUCT LINE
             </p>
-            <h2 className="text-3xl font-bold text-white mb-3">Dr. Pesos</h2>
+            <div className="flex justify-center mb-4">
+              <Image
+                src="/logos/Dr. Pesos Text.png"
+                alt="Dr. Pesos"
+                width={280}
+                height={80}
+                className="object-contain"
+                style={{ filter: "invert(1)" }}
+              />
+            </div>
             <p className="text-base max-w-xl mx-auto" style={{ color: "#888" }}>
               Tools and resources built by cultivators, for cultivators.
             </p>
@@ -209,29 +218,39 @@ export default function ServicesPage() {
                   ))}
                 </ul>
 
-                {p.href ? (
+                <div className="flex flex-col gap-3 mt-auto">
+                  {p.href ? (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="self-start px-6 py-2.5 rounded-full text-sm font-semibold"
+                      style={{ background: p.accent, color: "#000" }}
+                    >
+                      {p.cta} ↗
+                    </a>
+                  ) : (
+                    <span
+                      className="self-start px-6 py-2.5 rounded-full text-sm font-semibold"
+                      style={{
+                        background: "#1a1a1a",
+                        color: "#555",
+                        border: `1px solid #2a2a2a`,
+                      }}
+                    >
+                      {p.cta}
+                    </span>
+                  )}
                   <a
-                    href={p.href}
+                    href="https://www.johnccreations.design"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="self-start mt-auto px-6 py-2.5 rounded-full text-sm font-semibold"
-                    style={{ background: p.accent, color: "#000" }}
+                    className="text-xs font-medium"
+                    style={{ color: "#D4925A" }}
                   >
-                    {p.cta} ↗
+                    {p.href ? "Available at" : "Shop at"} johnccreations.design ↗
                   </a>
-                ) : (
-                  <Link
-                    href="/contact"
-                    className="self-start mt-auto px-6 py-2.5 rounded-full text-sm font-semibold"
-                    style={{
-                      background: "#1a1a1a",
-                      color: p.accent,
-                      border: `1px solid ${p.accent}33`,
-                    }}
-                  >
-                    {p.cta}
-                  </Link>
-                )}
+                </div>
               </div>
             ))}
           </div>
@@ -256,7 +275,15 @@ export default function ServicesPage() {
                 style={{ background: "#0d0d0d", border: "1px solid #1a1a1a" }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <Image src={link.icon} alt={link.name} width={28} height={28} className="object-contain" />
+                  <div
+                    className="flex items-center justify-center rounded-lg overflow-hidden"
+                    style={{
+                      background: link.icon.includes("ORI Logo-08") ? "#fff" : "transparent",
+                      padding: link.icon.includes("ORI Logo-08") ? "3px 7px" : "0",
+                    }}
+                  >
+                    <Image src={link.icon} alt={link.name} width={link.icon.includes("ORI Logo-08") ? 48 : 28} height={28} className="object-contain" />
+                  </div>
                   <span
                     className="text-xs font-semibold tracking-widest px-2 py-0.5 rounded"
                     style={{ background: `${link.badgeColor}18`, color: link.badgeColor }}

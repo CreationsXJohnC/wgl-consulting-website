@@ -9,7 +9,6 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -31,8 +30,8 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(0,0,0,0.95)" : "transparent",
-        borderBottom: scrolled ? "1px solid #2a2a2a" : "1px solid transparent",
+        background: scrolled ? "rgba(0,0,0,0.95)" : "#000",
+        borderBottom: "1px solid #1a1a1a",
         backdropFilter: scrolled ? "blur(12px)" : "none",
       }}
     >
@@ -66,15 +65,17 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          {/* Contact styled as a standout button */}
           <Link
             href="/contact"
-            className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200"
+            className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 border"
             style={{
-              background: "#7BC49A",
-              color: "#000",
+              borderColor: pathname === "/contact" ? "#7BC49A" : "#7BC49A",
+              color: pathname === "/contact" ? "#000" : "#7BC49A",
+              background: pathname === "/contact" ? "#7BC49A" : "transparent",
             }}
           >
-            Get in Touch
+            Contact
           </Link>
         </div>
 
@@ -126,10 +127,10 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="mt-2 px-6 py-3 rounded-full text-sm font-semibold text-center"
-            style={{ background: "#7BC49A", color: "#000" }}
+            className="mt-2 px-6 py-3 rounded-full text-sm font-semibold text-center border"
+            style={{ borderColor: "#7BC49A", color: "#7BC49A" }}
           >
-            Get in Touch
+            Contact
           </Link>
         </div>
       )}
