@@ -208,7 +208,7 @@ export default function AboutPage() {
                 >
                   <span
                     className="text-xl flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg"
-                    style={{ background: `${c.color}18` }}
+                    style={{ background: `${c.color}18`, color: c.color }}
                   >
                     {c.icon}
                   </span>
@@ -247,20 +247,20 @@ export default function AboutPage() {
                 logoWide: false,
               },
               {
-                logo: "/icons/ORI Icon14.png",
-                name: "Ori App",
-                desc: "The community platform. Connecting operators, growers, and the cannabis ecosystem.",
-                color: "#7BC49A",
-                status: "Beta",
-                logoWide: false,
-              },
-              {
                 logo: "/logos/ORI Logo-08.png",
                 name: "Ori Corp",
                 desc: "The corporate entity. Enterprise partnerships, investment, and development.",
                 color: "#B088CC",
                 status: "Coming Soon",
                 logoWide: true,
+              },
+              {
+                logo: "/icons/ORI Icon14.png",
+                name: "Ori App",
+                desc: "The community platform. Connecting operators, growers, and the cannabis ecosystem.",
+                color: "#7BC49A",
+                status: "Beta",
+                logoWide: false,
               },
             ].map((node) => (
               <div

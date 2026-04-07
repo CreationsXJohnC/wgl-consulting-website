@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" style={{ colorScheme: "light" }}>
+      <body style={{ colorScheme: "light" }}>
         <Navbar />
         <main>{children}</main>
         <Footer />

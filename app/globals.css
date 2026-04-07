@@ -2,6 +2,9 @@
 @import "tailwindcss";
 
 :root {
+  /* Force light mode — prevent all OS-level dark mode overrides */
+  color-scheme: light;
+
   --bg: #000000;
   --sage: #7BC49A;
   --lavender: #B088CC;
@@ -56,6 +59,31 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #7BC49A44;
+}
+
+/* ── Dark mode prevention ──────────────────────────── */
+/*
+  Explicitly override any browser dark-mode auto-styling.
+  color-scheme: light on :root is the primary lock, but
+  these rules act as a safety net for any element the browser
+  might still try to auto-invert.
+*/
+@media (prefers-color-scheme: dark) {
+  html, body {
+    color-scheme: light;
+    background-color: #000;
+    color: #fff;
+  }
+
+  /* Prevent browser from auto-inverting form inputs */
+  input, textarea, select {
+    color-scheme: light;
+  }
+
+  /* Prevent image auto-inversion in some browsers */
+  img {
+    color-scheme: light;
+  }
 }
 
 /* ── Button hover utilities ────────────────────────── */
