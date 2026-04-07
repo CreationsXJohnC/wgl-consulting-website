@@ -105,7 +105,7 @@ Use the 4 sage green icons as visual anchors throughout the site:
 | Detail | Info |
 |--------|------|
 | Deployment | Vercel (soft launch on Vercel domain first) |
-| Repository | GitHub under CreationsXJohnC |
+| Repository | github.com/CreationsXJohnC/wgl-consulting-website — live on main branch |
 | Custom Domain (eventual) | oricorpdc.com (acquired after soft launch review) |
 | Framework | Next.js preferred (matches existing Ori App and Dr. Pesos stack) |
 | Responsiveness | Fully mobile responsive — required |
@@ -116,13 +116,15 @@ Use the 4 sage green icons as visual anchors throughout the site:
 
 ## Deployment Plan
 
-1. Build and deploy to Vercel domain (e.g., wgl-consulting.vercel.app) for review
+1. Build and deploy to Vercel domain for soft launch review (current stage)
 2. Che reviews and approves the soft launch
-3. Acquire oricorpdc.com
-4. Swap oricorpdc.com onto the existing GoDaddy hosted site at www.oricompany.com
-5. Build new Ori Corp site from scratch (separate project, later phase)
-6. Once Ori Corp site is ready, move oricorpdc.com to Ori Corp — WGL Consulting gets its own domain
-7. End state: GoDaddy used for domain registration only
+3. Acquire wglconsulting.com (or closest available — wglconsultingdc.com, wglconsulting.co, etc.)
+4. Apply custom domain to this Vercel deployment
+
+**Domain Strategy Update (April 7, 2026):**
+- www.oricompanydc.com stays on GoDaddy as is — it is tied to active investor conversations for Ori Corp and should not be touched mid raise
+- This WGL Consulting site gets its own fresh domain: wglconsulting.com or closest available
+- oricorpdc.com is no longer part of this site's plan — if acquired later, it will go directly to a new standalone Ori Corp investor site
 
 ---
 
