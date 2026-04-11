@@ -6,10 +6,10 @@ type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
-  // Track field values to conditionally enable hover effect
   const [fields, setFields] = useState({ name: "", email: "", subject: "", message: "" });
 
-  const allFilled = fields.name.trim() !== "" &&
+  const allFilled =
+    fields.name.trim() !== "" &&
     fields.email.trim() !== "" &&
     fields.subject.trim() !== "" &&
     fields.message.trim() !== "";
@@ -22,19 +22,15 @@ export default function ContactForm() {
     e.preventDefault();
     setState("submitting");
 
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
     try {
-      const res = await fetch("https://formspree.io/f/wglconsultingdc", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
       });
 
       if (res.ok) {
         setState("success");
-        form.reset();
         setFields({ name: "", email: "", subject: "", message: "" });
       } else {
         setState("error");
@@ -147,10 +143,16 @@ export default function ContactForm() {
         disabled={state === "submitting" || state === "success"}
         className={`px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-200 disabled:opacity-60 ${allFilled && state !== "success" ? "btn-sage" : ""}`}
         style={{
-          background: state === "success" ? "#7BC49A" : "#7BC49A",
+          background: "#7BC49A",
           color: "#000",
-          // Disable pointer events on hover when form incomplete or already submitted
-          cursor: allFilled && state === "idle" ? "pointer" : state === "submitting" ? "wait" : state === "success" ? "default" : "not-allowed",
+          cursor:
+            allFilled && state === "idle"
+              ? "pointer"
+              : state === "submitting"
+              ? "wait"
+              : state === "success"
+              ? "default"
+              : "not-allowed",
         }}
       >
         {state === "success"
